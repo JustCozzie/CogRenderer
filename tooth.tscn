@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8f8fqr7dutyf"]
+
+[ext_resource type="Script" path="res://ToothRenderer.gd" id="1_0txei"]
+
+[node name="Tooth" type="Polygon2D"]
+show_behind_parent = true
+script = ExtResource("1_0txei")

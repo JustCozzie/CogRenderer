@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvtmxoy1trki1"]
+
+[ext_resource type="Script" path="res://CogDraw.gd" id="1_nhd5s"]
+
+[node name="Cog" type="Polygon2D"]
+antialiased = true
+script = ExtResource("1_nhd5s")
+radius = 300
+holeSize = 75
+teethWidth = 40
+teethLength = 40
+teethPointiness = 15

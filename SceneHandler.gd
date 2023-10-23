@@ -6,6 +6,14 @@ extends Node2D
 @export var backgroundColour = Color.WHITE
 @onready var bg_picker_button = $CanvasLayer/UI/VBoxContainer/HBoxContainer/BGPickerButton
 @onready var cog_picker_button = $CanvasLayer/UI/VBoxContainer/HBoxContainer/CogPickerButton
+
+var radius = 100 # Size of cogwheel
+var holeSize = 75 # Percentage. 100 is covers whole cogewheel, 0 is no hole
+var teethWidth = 40
+var teethLength = 40
+var teethNumber = 14 # How many teeth on cogwheel
+var teethPointiness = 15
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	RenderingServer.set_default_clear_color(backgroundColour)
@@ -65,3 +73,11 @@ func _on_bg_picker_button_color_changed(color):
 
 func _on_menu_but_toggled(button_pressed):
 	$CanvasLayer/UI/VBoxContainer/Menu.visible = !button_pressed
+
+
+func _on_radius_slider_value_changed(value):
+	radius = value
+
+
+func _on_hole_sizeslider_value_changed(value):
+	holeSize = value

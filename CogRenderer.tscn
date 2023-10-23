@@ -209,12 +209,14 @@ layout_mode = 2
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2"]
+[node name="RadiusSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2"]
 custom_minimum_size = Vector2(105, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_p2oin")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+max_value = 500.0
+value = 100.0
 scrollable = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2"]
@@ -228,12 +230,13 @@ layout_mode = 2
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer3"]
+[node name="HoleSizeslider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer3"]
 custom_minimum_size = Vector2(105, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_p2oin")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+value = 75.0
 scrollable = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer3"]
@@ -244,12 +247,14 @@ text = "Hole Size"
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4"]
+[node name="TeethCountSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4"]
 custom_minimum_size = Vector2(105, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_p2oin")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+value = 14.0
+rounded = true
 scrollable = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4"]
@@ -260,12 +265,13 @@ text = "Teeth Count"
 [node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer5"]
+[node name="TeethWidthSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer5"]
 custom_minimum_size = Vector2(105, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_p2oin")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+value = 40.0
 scrollable = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer5"]
@@ -276,12 +282,13 @@ text = "Teeth Width"
 [node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer6"]
+[node name="TeethLengthSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer6"]
 custom_minimum_size = Vector2(105, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_p2oin")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+value = 40.0
 scrollable = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer6"]
@@ -292,12 +299,13 @@ text = "Teeth Length"
 [node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer7"]
+[node name="PointinessSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer7"]
 custom_minimum_size = Vector2(105, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_p2oin")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+value = 15.0
 scrollable = false
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer7"]
@@ -316,3 +324,5 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/ScreenshotBut" to="." method="_on_screenshot_but_pressed"]
 [connection signal="color_changed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/BGPickerButton" to="." method="_on_bg_picker_button_color_changed"]
 [connection signal="color_changed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/CogPickerButton" to="." method="_on_cog_picker_button_color_changed"]
+[connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2/RadiusSlider" to="." method="_on_radius_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer3/HoleSizeslider" to="." method="_on_hole_sizeslider_value_changed"]

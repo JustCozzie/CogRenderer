@@ -25,6 +25,8 @@ var teethScale = Vector2(2 * teethWidth, 2 * teethLength)
 func _ready():
 	origin = get_viewport().get_mouse_position()
 	cogColour = sceneHandler.cogColour
+	radius = sceneHandler.radius * 3
+	holeSize = sceneHandler.holeSize
 	LoadTeeth()
 	pass # Replace with function body.
 

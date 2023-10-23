@@ -14,6 +14,8 @@ var teethLength = 40
 var teethNumber = 14 # How many teeth on cogwheel
 var teethPointiness = 15
 
+var cogList = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	RenderingServer.set_default_clear_color(backgroundColour)
@@ -35,6 +37,7 @@ func LoadCog():
 	# Load new Cog
 		var instance = cogScene.instantiate()
 		add_child(instance)
+		cogList.append(instance)
 
 
 func _on_screenshot_but_pressed():
@@ -92,3 +95,7 @@ func _on_teeth_length_slider_value_changed(value):
 
 func _on_pointiness_slider_value_changed(value):
 	teethPointiness = value
+
+func _on_clear_button_pressed():
+	for item in cogList:
+		remove_child(item)

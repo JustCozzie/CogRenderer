@@ -6,6 +6,6 @@
 A simple standalone utility for mathmatically generating cogs/gears. Made in Godot.
 
 For anyone else wondering:
-A **"Cog"** refers to each individual tooth on the circle
-A **"Gear"** refers to two or more sets of cogs meshed together
-and the thing we think of when someone says either of the above is actually known as a **"Cogwheel"**.
+- A **"Cog"** refers to each individual tooth on the circle
+- A **"Gear"** refers to two or more sets of cogs meshed together
+- and the thing we think of when someone says either of the above is actually known as a **"Cogwheel"**.

@@ -253,6 +253,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_p2oin")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+max_value = 90.0
 value = 14.0
 rounded = true
 scrollable = false
@@ -326,3 +327,7 @@ visible = false
 [connection signal="color_changed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/CogPickerButton" to="." method="_on_cog_picker_button_color_changed"]
 [connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2/RadiusSlider" to="." method="_on_radius_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer3/HoleSizeslider" to="." method="_on_hole_sizeslider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4/TeethCountSlider" to="." method="_on_teeth_count_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer5/TeethWidthSlider" to="." method="_on_teeth_width_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer6/TeethLengthSlider" to="." method="_on_teeth_length_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer7/PointinessSlider" to="." method="_on_pointiness_slider_value_changed"]

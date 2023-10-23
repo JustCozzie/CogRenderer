@@ -78,6 +78,17 @@ func _on_menu_but_toggled(button_pressed):
 func _on_radius_slider_value_changed(value):
 	radius = value
 
-
 func _on_hole_sizeslider_value_changed(value):
 	holeSize = value
+
+func _on_teeth_count_slider_value_changed(value):
+	teethNumber = value
+
+func _on_teeth_width_slider_value_changed(value):
+	teethWidth = value
+
+func _on_teeth_length_slider_value_changed(value):
+	teethLength = value
+
+func _on_pointiness_slider_value_changed(value):
+	teethPointiness = value

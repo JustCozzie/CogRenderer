@@ -27,6 +27,10 @@ func _ready():
 	cogColour = sceneHandler.cogColour
 	radius = sceneHandler.radius * 3
 	holeSize = sceneHandler.holeSize
+	teethWidth = sceneHandler.teethWidth
+	teethLength = sceneHandler.teethLength
+	teethNumber = sceneHandler.teethNumber
+	teethPointiness = sceneHandler.teethPointiness
 	LoadTeeth()
 	pass # Replace with function body.
 

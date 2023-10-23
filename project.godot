@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/bg_color=Color(0.2, 0.2, 0.2, 1)
 boot_splash/image="res://Cog Renderer header.png"
 boot_splash/fullsize=false
-config/icon="res://Cog Generator Icon.svg"
+config/icon="res://Cog Icon.png"
 
 [display]
 

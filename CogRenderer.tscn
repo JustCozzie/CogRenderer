@@ -1,12 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3ryuo6pcwqg"]
+[gd_scene load_steps=27 format=3 uid="uid://b3ryuo6pcwqg"]
 
 [ext_resource type="Script" path="res://SceneHandler.gd" id="1_8elvo"]
-[ext_resource type="Texture2D" uid="uid://clr48jbjbm5yy" path="res://Cog Generator Icon.svg" id="1_kc3dq"]
 [ext_resource type="PackedScene" uid="uid://c8f8fqr7dutyf" path="res://tooth.tscn" id="2_37aft"]
 [ext_resource type="Texture2D" uid="uid://cplr3jg2jmd6y" path="res://Quit icon.png" id="2_64ltx"]
 [ext_resource type="Script" path="res://UI.gd" id="2_bmckq"]
 [ext_resource type="Texture2D" uid="uid://cjvm3xp0oh84r" path="res://Screenshot Icon.png" id="3_4bkws"]
+[ext_resource type="Texture2D" uid="uid://bck2r3o1ajdbr" path="res://Cog Icon.png" id="4_nms04"]
 [ext_resource type="PackedScene" uid="uid://dvtmxoy1trki1" path="res://Cog.tscn" id="5_o2ms6"]
+[ext_resource type="Theme" uid="uid://b7jvpjnvv2u5w" path="res://CogRenderer.tres" id="6_p2oin"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4fwnu"]
 
@@ -83,9 +84,11 @@ action = &"CogColour"
 [sub_resource type="Shortcut" id="Shortcut_tprc5"]
 events = [SubResource("InputEventAction_mp8b6")]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpmek"]
+bg_color = Color(0.554688, 0.597656, 0.605469, 1)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8elvo")
-cogColour = Color(0.454902, 0.470588, 0.721569, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -125,20 +128,24 @@ shortcut = SubResource("Shortcut_g1ojr")
 icon = ExtResource("2_64ltx")
 flat = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MenuBut" type="Button" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MenuBut" type="Button" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 tooltip_text = "Toggle Menu"
-theme_override_colors/icon_normal_color = Color(0.839216, 0.831373, 0.835294, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_pressed_color = Color(0.419608, 0.419608, 0.419608, 1)
 theme_override_colors/icon_hover_color = Color(0.694118, 0.694118, 0.694118, 1)
 theme_override_colors/icon_hover_pressed_color = Color(1, 0, 0.231373, 1)
-theme_override_colors/icon_focus_color = Color(0.839216, 0.831373, 0.835294, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(0.262745, 0.262745, 0.262745, 1)
 theme_override_constants/icon_max_width = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4fwnu")
@@ -148,10 +155,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1wnc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sahri")
 toggle_mode = true
 shortcut = SubResource("Shortcut_t1x0y")
-icon = ExtResource("1_kc3dq")
+icon = ExtResource("4_nms04")
 flat = true
 
-[node name="ScreenshotBut" type="Button" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="ScreenshotBut" type="Button" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -172,7 +179,7 @@ shortcut = SubResource("Shortcut_b1axh")
 icon = ExtResource("3_4bkws")
 flat = true
 
-[node name="BGPickerButton" type="ColorPickerButton" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="BGPickerButton" type="ColorPickerButton" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -184,7 +191,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4wxqe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jrhmo")
 shortcut = SubResource("Shortcut_tprc5")
 
-[node name="CogPickerButton" type="ColorPickerButton" parent="CanvasLayer/UI/HBoxContainer"]
+[node name="CogPickerButton" type="ColorPickerButton" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -196,6 +203,108 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4wxqe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jrhmo")
 shortcut = SubResource("Shortcut_tprc5")
 
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2"]
+custom_minimum_size = Vector2(105, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("6_p2oin")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+scrollable = false
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
+text = "Radius"
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer3"]
+custom_minimum_size = Vector2(105, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("6_p2oin")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+scrollable = false
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
+text = "Hole Size"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4"]
+custom_minimum_size = Vector2(105, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("6_p2oin")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+scrollable = false
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
+text = "Teeth Count"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer5"]
+custom_minimum_size = Vector2(105, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("6_p2oin")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+scrollable = false
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
+text = "Teeth Width"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer6"]
+custom_minimum_size = Vector2(105, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("6_p2oin")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+scrollable = false
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
+text = "Teeth Length"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer7"]
+custom_minimum_size = Vector2(105, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("6_p2oin")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kpmek")
+scrollable = false
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer7"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
+text = "Pointiness"
+
 [node name="Cog" parent="." instance=ExtResource("5_o2ms6")]
 visible = false
 
@@ -203,6 +312,7 @@ visible = false
 visible = false
 
 [connection signal="pressed" from="CanvasLayer/UI/QuitBut" to="." method="_on_quit_but_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/ScreenshotBut" to="." method="_on_screenshot_but_pressed"]
-[connection signal="color_changed" from="CanvasLayer/UI/HBoxContainer/BGPickerButton" to="." method="_on_bg_picker_button_color_changed"]
-[connection signal="color_changed" from="CanvasLayer/UI/HBoxContainer/CogPickerButton" to="." method="_on_cog_picker_button_color_changed"]
+[connection signal="toggled" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/MenuBut" to="." method="_on_menu_but_toggled"]
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/ScreenshotBut" to="." method="_on_screenshot_but_pressed"]
+[connection signal="color_changed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/BGPickerButton" to="." method="_on_bg_picker_button_color_changed"]
+[connection signal="color_changed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/CogPickerButton" to="." method="_on_cog_picker_button_color_changed"]

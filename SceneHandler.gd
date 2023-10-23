@@ -4,9 +4,8 @@ extends Node2D
 @export var cogScene = preload("res://Cog.tscn") # Cog prefab
 @export var cogColour = Color.BLACK
 @export var backgroundColour = Color.WHITE
-@onready var bg_picker_button = $CanvasLayer/UI/HBoxContainer/BGPickerButton
-@onready var cog_picker_button = $CanvasLayer/UI/HBoxContainer/CogPickerButton
-
+@onready var bg_picker_button = $CanvasLayer/UI/VBoxContainer/HBoxContainer/BGPickerButton
+@onready var cog_picker_button = $CanvasLayer/UI/VBoxContainer/HBoxContainer/CogPickerButton
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	RenderingServer.set_default_clear_color(backgroundColour)
@@ -14,7 +13,6 @@ func _ready():
 	bg_picker_button.edit_alpha = false
 	cog_picker_button.color = cogColour
 	cog_picker_button.edit_alpha = false
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -63,3 +61,7 @@ func _on_cog_picker_button_color_changed(color):
 func _on_bg_picker_button_color_changed(color):
 	backgroundColour = color
 	RenderingServer.set_default_clear_color(color)
+
+
+func _on_menu_but_toggled(button_pressed):
+	$CanvasLayer/UI/VBoxContainer/Menu.visible = !button_pressed

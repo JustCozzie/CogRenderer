@@ -58,8 +58,6 @@ func LoadTeeth():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Get middle of viewport
-#	origin = get_viewport_rect().size / 2
 	
 	if teethNumber != oldTeethNumber:
 		LoadTeeth()

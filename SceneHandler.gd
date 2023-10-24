@@ -99,3 +99,4 @@ func _on_pointiness_slider_value_changed(value):
 func _on_clear_button_pressed():
 	for item in cogList:
 		remove_child(item)
+		cogList = []

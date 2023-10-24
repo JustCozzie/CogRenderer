@@ -30,7 +30,7 @@ project/assembly_name="Game Dev"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SliderLabel/plugin.cfg")
+enabled=PackedStringArray("res://addons/SliderLabel/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
 
 [input]
 

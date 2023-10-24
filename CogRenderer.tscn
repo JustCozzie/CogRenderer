@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b3ryuo6pcwqg"]
+[gd_scene load_steps=29 format=3 uid="uid://b3ryuo6pcwqg"]
 
 [ext_resource type="Script" path="res://SceneHandler.gd" id="1_8elvo"]
 [ext_resource type="PackedScene" uid="uid://c8f8fqr7dutyf" path="res://tooth.tscn" id="2_37aft"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dvtmxoy1trki1" path="res://Cog.tscn" id="5_o2ms6"]
 [ext_resource type="Theme" uid="uid://b7jvpjnvv2u5w" path="res://CogRenderer.tres" id="6_p2oin"]
 [ext_resource type="Texture2D" uid="uid://b07ugol3j40wh" path="res://clear icon.png" id="6_xhwvs"]
+[ext_resource type="Script" path="res://addons/SliderLabel/SliderLabel.gd" id="8_owywl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4fwnu"]
 
@@ -280,10 +281,22 @@ value = 14.0
 rounded = true
 scrollable = false
 
+[node name="SliderLabel" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_owywl")
+visibility_rule = 3
+custom_slider_path = NodePath("../TeethCountSlider")
+metadata/_edit_initialized_ = true
+
 [node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer/Menu/HBoxContainer4"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.175781, 0.175781, 0.175781, 1)
-text = "Teeth Count"
+text = "Teeth"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/Menu"]
 layout_mode = 2
